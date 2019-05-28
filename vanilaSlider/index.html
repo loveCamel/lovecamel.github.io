@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="vanilaSlider - легкий слайдер на чистом javascript">
+  <title>vanilaSlider</title>
+  <link rel="stylesheet" href="css/main.min.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="header__nav">
+      <a href="#connection" class="header__link">Подключение</a>
+      <a href="#download" class="header__link">Скачать</a>
+      <a href="#examples" class="header__link">Примеры</a>
+      <a href="#settings" class="header__link">Настройки</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section class="connection" id="connection">
+        <h2 class="connection__title title">Подключение</h2>
+        <p class="connection__text text">Для установки слайдера необходимо подключить js и css файлы</p>
+        <div class="connection__block">
+          <h3 class="connection__subtitle subtitle">Подклчюение css</h3>
+          <p class="connection__subtext">Необходимо подключить файл <b>vanilaSlider.min.css</b> внутрь тега &lt;head&gt; &lt;/head&gt; на необходимых вам страницах</p>
+          <pre class="connection__code code prettyprint">
+&lt;link rel="stylesheet" href="vanilaSlider/vanilaSlider.min.css"&gt;
+        </pre>
+        </div>
+        <div class="connection__block">
+          <h3 class="connection__subtitle subtitle">Подклчюение js</h3>
+          <p class="connection__subtext">Необходимо подключить файл vanilaSlider.min.js после тега &lt;body&gt; &lt;/body&gt; на необходимых вам страницах</p>
+          <pre class="connection__code code prettyprint">
+&lt;link rel="stylesheet" href="vanilaSlider/vanilaSlider.min.css"&gt;
+          </pre>
+        </div>
+      </section>
+      <section class="download" id="download">
+        <h2 class="download__title title">Скачать</h2>
+        <p class="download__text text">Вы можете скачать файл .zip архивом (минифицированный css\js) или посмореть исходники на github</p>
+        <div class="download__block">
+          <a href="/vanilaSlider.zip" class="download__btn btn">Скачать архивом</a>
+          <p class="download__or">или</p>
+          <a href="https://github.com/loveCamel/vanilaSlider" class="download__btn btn">Посмотреть на github</a>
+        </div>
+      </section>
+      <section class="examples" id="examples">
+        <h2 class="examples__title title">Примеры</h2>
+        <ul class="examples__list">
+          <li class="examples__item" id="exx_minimal">
+            <h3 class="examples__name subtitle">Минимальные настройки</h3>
+            <div class="examples__slider">
+              <div class="examples__slide">
+                <img src="img/slide1.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide2.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide3.jpg" alt="vanilaSlider slide">
+              </div>
+            </div>
+            <ul class="examples__sublist">
+              <li class="examples__subitem">
+                <h4 class="examples__subname subtitle">Вёрстка</h4>
+                <pre class="examples__code code prettyprint">
+&lt;div class="list"&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="1.jpg"&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="2.jpg"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+              </li>
+              <li class="examples__subitem">
+                <h4 class="examples__subname subtitle">javascript</h4>
+                <pre class="examples__code code prettyprint">
+const slider = new VanilaSlider({
+  slider: ".list",
+  slides: ".item"
+});
+                  </pre>
+              </li>
+            </ul>
+          </li>
+          <li class="examples__item" id="exx_some">
+            <h3 class="examples__name subtitle">Несколько кадров</h3>
+            <div class="examples__slider">
+              <div class="examples__slide">
+                <img src="img/slide1.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide2.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide3.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide2.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide3.jpg" alt="vanilaSlider slide">
+              </div>
+            </div>
+            <ul class="examples__sublist">
+              <li class="examples__subitem">
+                <h4 class="examples__subname subtitle">Вёрстка</h4>
+                <pre class="examples__code code prettyprint">
+&lt;div class="list"&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="1.jpg"&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="2.jpg"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+  </pre>
+              </li>
+              <li class="examples__subitem">
+                <h4 class="examples__subname subtitle">javascript</h4>
+                <pre class="examples__code code prettyprint">
+const slider = new VanilaSlider({
+  slider: ".list",
+  slides: ".item",
+  showCount: 2
+});
+                    </pre>
+              </li>
+            </ul>
+          </li>
+          <li class="examples__item" id="exx_autoslide">
+            <h3 class="examples__name subtitle">Авто слайдшоу с указанием времени</h3>
+            <div class="examples__slider">
+              <div class="examples__slide">
+                <img src="img/slide1.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide2.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide3.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide1.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide2.jpg" alt="vanilaSlider slide">
+              </div>
+              <div class="examples__slide">
+                <img src="img/slide3.jpg" alt="vanilaSlider slide">
+              </div>
+            </div>
+            <ul class="examples__sublist">
+              <li class="examples__subitem">
+                <h4 class="examples__subname subtitle">Вёрстка</h4>
+                <pre class="examples__code code prettyprint">
+&lt;div class="list"&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="1.jpg"&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="2.jpg"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+  </pre>
+              </li>
+              <li class="examples__subitem">
+                <h4 class="examples__subname subtitle">javascript</h4>
+                <pre class="examples__code code prettyprint">
+const slider = new VanilaSlider({
+  slider: ".list",
+  slides: ".item",
+  showCount: 3
+});
+
+slider.autoSlide(2000);
+                    </pre>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="settings" id="settings">
+        <h2 class="settings__title title">Настройка</h2>
+        <p class="settings__text text">Базовая настройка слайдера</p>
+        <h3 class="settings__subtitle subtitle">быстрый старт</h3>
+        <p class="settings__text text">Пример подключение слайдера с минимальными настройками слайдера</p>
+        <ul class="settings__list">
+          <li class="settings__item">
+            <h4 class="settings__name subtitle">Вёрстка</h4>
+            <pre class="settings__code code prettyprint">
+&lt;div class="list"&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="1.jpg"&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+    &lt;img src="2.jpg"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+            </pre>
+          </li>
+          <li class="settings__item">
+            <h4 class="settings__name subtitle">JAVASCRIPT</h4>
+            <pre class="settings__code code prettyprint">
+const slider = new VanilaSlider({
+  slider: ".list",
+  slides: ".item"
+});
+      </pre>
+          </li>
+        </ul>
+      </section>
+      <section class="param">
+        <h2 class="param__title title">Параметры</h2>
+        <table class="param__table">
+          <thead>
+            <tr>
+              <th>Название</th>
+              <th>Тип</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>slider</td>
+              <td>Строка</td>
+              <td class="mini">CSS селектор слайдера. Используется метод querySelector. <b>Обязательный параметр</b></td>
+            </tr>
+            <tr>
+              <td>slides</td>
+              <td>Строка</td>
+              <td class="mini">CSS селектор слайдов. Используется метод querySelectorAll. <b>Обязательный параметр</b></td>
+            </tr>
+            <tr>
+              <td>showCount</td>
+              <td>Число</td>
+              <td class="mini">Количество слайдов на экране</td>
+            </tr>
+            <tr>
+              <td>btnPrev</td>
+              <td>Строка</td>
+              <td class="mini">Селектор кнопки "предыдущий слайд". Если оставить пустым, то появится кнопка по умолчанию</td>
+            </tr>
+            <tr>
+              <td>btnNext</td>
+              <td>Строка</td>
+              <td class="mini">Селектор кнопки "следующий слайд". Если оставить пустым, то появится кнопка по умолчанию</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="param">
+          <h2 class="param__title title">Методы</h2>
+          <table class="param__table">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Описание</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>nextSlide()</td>
+                <td class="mini">Переключает слайд на следующий. Если слайд последний, переключит на первый слайд</td>
+              </tr>
+              <tr>
+                <td>prevSlide()</td>
+                <td class="mini">Переключает слайд на предыдущий. Если это первый слайд, переключит на последний</b></td>
+              </tr>
+              <tr>
+                <td>autoSlide(time)</td>
+                <td class="mini">Включает автоматическое слайдшоу. <b>time</b> - число, время переключения слайда. 1000 - 1 секунда</td>
+              </tr>
+              <tr>
+                <td>stopAutoSlide()</td>
+                <td class="mini">Останавливает автоматическое слайдшоу</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+    </div>
+  </main>
+  <script src="js/root.js"></script>
+</body>
+
+</html>
