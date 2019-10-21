@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php?abc=$0 [QSA]
+Header set Access-Control-Allow-Origin *
