@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule .* react_shop/index.html?abc=$0 [QSA]
