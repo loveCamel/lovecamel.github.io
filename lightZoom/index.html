@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>LightZoom - зум картинок</title>
+<link href="./assets/css/app.css" rel="stylesheet"></head>
+
+<body>
+  <header class='header'>
+    <nav class='header__nav wrap'>
+      <a href='#connection' class='header__link'>Подключение</a>
+      <a href='#options' class='header__link'>Опции</a>
+      <a href='#methods' class='header__link'>Методы</a>
+      <a href='#examples' class='header__link'>Примеры</a>
+      <a href='#download' class='header__link'>Скачать</a>
+    </nav>
+  </header>
+  <main>
+    <div class='wrap'>
+      <section>
+        <h1>LightZoom - зум картинок на чистом javaScript</h1>
+      </section>
+      <section id="connection">
+        <h2>Подключение</h2>
+        <p class="mb-40">Для подключения зума необходимо подключить js и css файлы</p>
+        <article class="mb-40">
+          <h3>Подключение css</h3>
+          <p class="mb-20">Необходимо подключить файл <b>LightZoom.css</b> внутрь тега &lt;head&gt; &lt;/head&gt; на необходимых вам страницах</p>
+          <p><b>Файл находится по пути: LightZoom\dist\css</b>
+</p>
+          <p>Пример подключения:</p>
+          <pre class="connection__code code prettyprint">
+
+&lt;link rel="stylesheet" href="LightZoom.css"&gt;
+          </pre>
+        </article>
+        <article class="mb-20">
+          <h3>Подключение js</h3>
+          <p>Необходимо подключить файл LightZoom.js после тега &lt;body&gt; &lt;/body&gt; на необходимых вам страницах</p>
+          <b>Файл находится по пути: LightZoom\dist\js</b>
+          <p>Пример подключения:</p>
+          <pre class="connection__code code prettyprint">
+
+&lt;script type="text/javascript" src="LightZoom.js"&gt;&lt;/script&gt;
+          </pre>
+        </article>
+      </section>
+      <section id="options">
+        <h2>Опции</h2>
+        <p class="mb-20">Всё опции являются необязательными, т.к имеют значения по умолчанию</p>
+        <table class="mb-40">
+          <thead>
+            <tr>
+              <th>Название</th>
+              <th>Тип</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>selector</td>
+              <td>String</td>
+              <td class="mini">Селектор изображений, которые нужно увеличить по клику. Используется метод querySelectorAll.<br><b>У изображений должен быть задан атрибут src</b><br>По умолчанию: 'img'</td>
+            </tr>
+            <tr>
+              <td>isFix</td>
+              <td>Boolean</td>
+              <td class="mini">Запрещать ли скролл при открытии модального окна.<br>По умолчанию: false</td>
+            </tr>
+            <tr>
+              <td>isCursorPointer</td>
+              <td>Boolean</td>
+              <td class="mini">Показывать ли иконку зума при наведении на картинки.<br>По умолчанию: false</td>
+            </tr>
+            <tr>
+              <td>isOutsideClose </td>
+              <td>Boolean</td>
+              <td class="mini">Будет ли модальное окно закрываться при клике вне картинки.<br>По умолчанию: false</td>
+            </tr>
+            <tr>
+              <td>bgColor</td>
+              <td>String</td>
+              <td class="mini">Цвет фона(подложки) модального окна. Использовать только полный (6-ти знанчый) формат HEX, примеры:<br><br>'#ffffff'<br>'#eeeeee'<br>'#24292e'<br><br>По умолчанию: '#ffffff'</td>
+            </tr>
+            <tr>
+              <td>bgOpacity</td>
+              <td>Number</td>
+              <td class="mini">Число от 0 до 100. Прозрачность фона(подложки) модального окна. Где 100, значит полная заливка фона, а 0 - полная прозрачность <br>По умолчанию: 80</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="methods">
+        <h2>Методы</h2>
+        <table class="mb-40">
+          <thead>
+            <tr>
+              <th>Название</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>closeModal()</td>
+              <td class="mini">Метод закрывает модальное окно</td>
+            </tr>
+            <tr>
+              <td>removeEvents()</td>
+              <td class="mini">Метод удаляет все обработчики событий со всех элементов.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="examples">
+        <h2 class="mb-40">Примеры</h2>
+        <div class='example'>
+
+          <div class='example__block'>
+            <h3>Минимальные настройки</h3>
+            <img src='./assets/img/img.jpg' alt='image' class='example__img' id='example__img_1'>
+            <div class='example__half'>
+              <h4 class="examples__subname">Вёрстка</h4>
+              <pre class="examples__code code prettyprint">
+
+&lt;img src='img.jpg' alt='image' class='example__img'&gt;
+              </pre>
+            </div>
+            <div class='example__half'>
+              <h4 class="examples__subname">JavaScript</h4>
+              <pre class="examples__code code prettyprint">
+
+new LightZoom({
+  selector: '.example__img'
+});
+              </pre>
+            </div>
+          </div>
+
+          <div class='example__block'>
+            <h3>Запрет на скролл + иконка зума + закрытие при клике мимо картинки</h3>
+            <img src='./assets/img/img.jpg' alt='image' class='example__img' id='example__img_2'>
+            <div class='example__half'>
+              <h4 class="examples__subname">Вёрстка</h4>
+              <pre class="examples__code code prettyprint">
+
+&lt;img src='img.jpg' alt='image' class='example__img'&gt;
+              </pre>
+            </div>
+            <div class='example__half'>
+              <h4 class="examples__subname">JavaScript</h4>
+              <pre class="examples__code code prettyprint">
+
+new LightZoom({
+  selector: '.example__img',
+  isFix: true,
+  isCursorPointer: true,
+  isOutsideClose: true
+});
+              </pre>
+            </div>
+          </div>
+
+          <div class='example__block'>
+            <h3>Непрозрачный синий фон</h3>
+            <img src='./assets/img/img.jpg' alt='image' class='example__img' id='example__img_3'>
+            <div class='example__half'>
+              <h4 class="examples__subname">Вёрстка</h4>
+              <pre class="examples__code code prettyprint">
+
+&lt;img src='img.jpg' alt='image' class='example__img'&gt;
+              </pre>
+            </div>
+            <div class='example__half'>
+              <h4 class="examples__subname">JavaScript</h4>
+              <pre class="examples__code code prettyprint">
+
+new LightZoom({
+  selector: '.example__img',
+  bgColor: '#0067c9',
+  bgOpacity: 100
+});
+              </pre>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section id="download">
+        <h2>Скачать</h2>
+        <p>Вы можете скачать файл .zip архивом или посмореть исходники на github</p>
+        <div>
+          <a href="https://github.com/loveCamel/LightZoom/archive/master.zip" class="btn mb-20">Скачать архивом</a>
+          <a href="https://github.com/loveCamel/LightZoom" target="_blank" class="btn">Посмотреть на github</a>
+        </div>
+      </section>
+    </div>
+  </main>
+<script type="text/javascript" src="./assets/js/app.js"></script></body>
+
+</html>
