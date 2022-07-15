@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/demo/theme/static/css/main.df702935.css",
+    "main.js": "/demo/theme/static/js/main.c4d20744.js",
+    "index.html": "/demo/theme/index.html",
+    "main.df702935.css.map": "/demo/theme/static/css/main.df702935.css.map",
+    "main.c4d20744.js.map": "/demo/theme/static/js/main.c4d20744.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df702935.css",
+    "static/js/main.c4d20744.js"
+  ]
+}
